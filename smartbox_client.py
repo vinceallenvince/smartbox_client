@@ -86,7 +86,7 @@ def check_ready():
             #play()
 
 def shutdown_pi():
-    call(["ls", "-l"])
+    call(["~/shutdown.sh"])
 
 while True:
     #if ready == True :
