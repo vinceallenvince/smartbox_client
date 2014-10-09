@@ -98,7 +98,7 @@ while True:
             led_off()
             time.sleep(0.2)
 
-        shutdown_state = GPIO.input(button_thumb_down)
+        shutdown_state = GPIO.input(button_shutdown)
         if shutdown_state == False:
             print('shutdown button Pressed')
             led_on()
