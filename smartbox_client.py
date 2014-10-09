@@ -85,6 +85,7 @@ while True:
         input_state = GPIO.input(button_thumb_up)
         if input_state == False:
             print('Button Pressed')
+            led_on()
             time.sleep(0.2)
 
     #else:
