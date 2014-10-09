@@ -19,7 +19,7 @@ LED = 25
 LED_count = 0
 LED_state = 1
 GPIO.setup(LED, GPIO.OUT)
-GPIO.output(LED, False)
+GPIO.output(LED, True)
 
 def led_on():
     GPIO.output(LED, True)
@@ -81,13 +81,13 @@ def check_ready():
             #play()
 
 while True:
-    if ready == True :
+    #if ready == True :
         input_state = GPIO.input(button_thumb_up)
         if input_state == False:
             print('Button Pressed')
             time.sleep(0.2)
 
-    else:
-        check_ready()
+    #else:
+        #check_ready()
 
 
