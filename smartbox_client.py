@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 from urllib2 import Request, urlopen, URLError
 import json
+from subprocess import call
 
 ## TODO
 # set smartbox-ch1 preset
@@ -36,7 +37,7 @@ GPIO.setup(button_thumb_up, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb up
 GPIO.setup(button_thumb_down, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb down
 
 button_shutdown = 5
-GPIO.setup(button_shutdown, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb down
+GPIO.setup(button_shutdown, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 ###################
 
@@ -84,6 +85,9 @@ def check_ready():
             #set_volume(5) # range is -10 -> 10
             #play()
 
+def shutdown_pi():
+    call(["ls", "-l"])
+
 while True:
     #if ready == True :
         thumb_up_state = GPIO.input(button_thumb_up)
@@ -101,7 +105,7 @@ while True:
         shutdown_state = GPIO.input(button_shutdown)
         if shutdown_state == False:
             print('shutdown button Pressed')
-            led_on()
+            shutdown_pi()
             time.sleep(0.2)
 
     #else:
