@@ -15,11 +15,11 @@ base_server_uri = "http://162.243.120.32:8888"
 
 ###################
 
-LED = 25
+LED = 14
 LED_count = 0
 LED_state = 1
 GPIO.setup(LED, GPIO.OUT)
-GPIO.output(LED, True)
+GPIO.output(LED, False)
 
 def led_on():
     GPIO.output(LED, True)
@@ -30,9 +30,10 @@ def led_off():
 ###################
 
 button_thumb_up = 23
+button_thumb_down = 12
 
 GPIO.setup(button_thumb_up, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb up
-#GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(button_thumb_down, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 ###################
 
@@ -86,6 +87,12 @@ while True:
         if input_state == False:
             print('Button Pressed')
             led_on()
+            time.sleep(0.2)
+
+        input_state = GPIO.input(button_thumb_down)
+        if input_state == False:
+            print('Button Pressed')
+            led_off()
             time.sleep(0.2)
 
     #else:
