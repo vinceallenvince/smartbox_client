@@ -33,7 +33,10 @@ button_thumb_up = 23
 button_thumb_down = 12
 
 GPIO.setup(button_thumb_up, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb up
-GPIO.setup(button_thumb_down, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(button_thumb_down, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb down
+
+button_shutdown = 5
+GPIO.setup(button_shutdown, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb down
 
 ###################
 
@@ -93,6 +96,12 @@ while True:
         if thumb_down_state == False:
             print('down button Pressed')
             led_off()
+            time.sleep(0.2)
+
+        shutdown_state = GPIO.input(button_thumb_down)
+        if shutdown_state == False:
+            print('shutdown button Pressed')
+            led_on()
             time.sleep(0.2)
 
     #else:
