@@ -16,7 +16,7 @@ base_server_uri = "http://162.243.120.32:8888"
 
 ###################
 
-LED = 14
+LED = 26
 LED_count = 0
 LED_state = 1
 GPIO.setup(LED, GPIO.OUT)
@@ -30,8 +30,8 @@ def led_off():
 
 ###################
 
-button_thumb_up = 23
-button_thumb_down = 12
+button_thumb_up = 6
+button_thumb_down = 19
 
 GPIO.setup(button_thumb_up, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb up
 GPIO.setup(button_thumb_down, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb down
