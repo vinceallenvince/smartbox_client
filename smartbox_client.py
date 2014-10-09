@@ -31,7 +31,7 @@ def led_off():
 ###################
 
 button_thumb_up = 16
-button_thumb_down = 19
+button_thumb_down = 21
 
 GPIO.setup(button_thumb_up, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb up
 GPIO.setup(button_thumb_down, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb down
