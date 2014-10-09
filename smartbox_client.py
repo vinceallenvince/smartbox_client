@@ -29,10 +29,10 @@ def led_off():
 
 ###################
 
-#button_thumb_up = 23
+button_thumb_up = 23
 button_thumb_down = 12
 
-#GPIO.setup(button_thumb_up, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb up
+GPIO.setup(button_thumb_up, GPIO.IN, pull_up_down=GPIO.PUD_UP) #thumb up
 GPIO.setup(button_thumb_down, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 ###################
@@ -83,7 +83,11 @@ def check_ready():
 
 while True:
     #if ready == True :
-
+        thumb_up_state = GPIO.input(button_thumb_up)
+        if thumb_up_state == False:
+            print('up button Pressed')
+            led_on()
+            time.sleep(0.2)
 
         thumb_down_state = GPIO.input(button_thumb_down)
         if thumb_down_state == False:
