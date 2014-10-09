@@ -77,8 +77,8 @@ def check_ready():
             # everything is fine
             ready = True
             led_on()
-            set_volume(5) # range is -10 -> 10
-            play()
+            #set_volume(5) # range is -10 -> 10
+            #play()
 
 while True:
     if ready == True :
