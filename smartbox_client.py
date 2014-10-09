@@ -83,15 +83,15 @@ def check_ready():
 
 while True:
     #if ready == True :
-        input_state = GPIO.input(button_thumb_up)
-        if input_state == False:
-            print('Button Pressed')
+        thumb_up_state = GPIO.input(button_thumb_up)
+        if thumb_up_state == False:
+            print('up button Pressed')
             led_on()
             time.sleep(0.2)
 
-        input_state = GPIO.input(button_thumb_down)
-        if input_state == False:
-            print('Button Pressed')
+        thumb_down_state = GPIO.input(button_thumb_down)
+        if thumb_down_state == False:
+            print('down button Pressed')
             led_off()
             time.sleep(0.2)
 
