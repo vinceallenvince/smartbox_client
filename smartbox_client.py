@@ -69,7 +69,6 @@ def clear():
     urlopen(req)
     response = urlopen(req)
     data = response.read()
-    print data
     play()
 
 def thumbup():
@@ -77,6 +76,10 @@ def thumbup():
     pause()
     req = Request(base_server_uri + "/recs?user=mrchrisjohnson&thumb=up&track=" + title_uri)
     urlopen(req)
+    response = urlopen(req)
+    data = response.read()
+    print data
+    play()
 
 def thumbdown():
     pass
