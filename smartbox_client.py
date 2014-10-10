@@ -94,6 +94,8 @@ def check_ready():
             ready = True
             clear()
             led_on()
+            req = Request(base_client_uri + "/action?action=set-preset-1")
+            urlopen(req)
             #set_volume(5) # range is -10 -> 10
             #play()
 
