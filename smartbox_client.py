@@ -49,7 +49,7 @@ def play():
     req = Request(base_client_uri + "/action?action=play")
     urlopen(req)
 
-def set_volume(y):
+def set_volume():
     #vol = scale(y, (0.0, +20.0), (0.0, +65535.0)) + init_volume_val
     #print(vol)
     #if vol > 0 and vol < 65535 :
