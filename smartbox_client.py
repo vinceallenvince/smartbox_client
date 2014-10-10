@@ -144,6 +144,7 @@ while True:
         thumb_down_state = GPIO.input(button_thumb_down)
         if thumb_down_state == False:
             print('down button Pressed')
+            thumbdown()
             time.sleep(0.2)
 
         shutdown_state = GPIO.input(button_shutdown)
