@@ -122,13 +122,12 @@ while True:
         thumb_up_state = GPIO.input(button_thumb_up)
         if thumb_up_state == False:
             print('up button Pressed')
-            led_on()
+            thumbup()
             time.sleep(0.2)
 
         thumb_down_state = GPIO.input(button_thumb_down)
         if thumb_down_state == False:
             print('down button Pressed')
-            led_off()
             time.sleep(0.2)
 
         shutdown_state = GPIO.input(button_shutdown)
