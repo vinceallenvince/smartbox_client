@@ -72,17 +72,22 @@ def clear():
     play()
 
 def thumbup():
-    print title_uri
+    print "thumbup: " + title_uri
     pause()
     req = Request(base_server_uri + "/recs?user=mrchrisjohnson&thumb=up&track=" + title_uri)
     urlopen(req)
     response = urlopen(req)
     data = response.read()
-    print data
     play()
 
 def thumbdown():
-    pass
+    print "thumbdown: " + title_uri
+    pause()
+    req = Request(base_server_uri + "/recs?user=mrchrisjohnson&thumb=down&track=" + title_uri)
+    urlopen(req)
+    response = urlopen(req)
+    data = response.read()
+    play()
 
 def check_status():
 
