@@ -108,9 +108,9 @@ def check_ready():
             # everything is fine
             print "Ready!"
             ready = True
-            clear()
+            clear() # clear cache
             led_on()
-            set_volume(20.0) # range is -20 -> 20
+            set_volume()
             play()
 
 def shutdown_pi():
