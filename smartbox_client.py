@@ -90,6 +90,7 @@ def check_ready():
                 pass
         else:
             # everything is fine
+            print "Ready!"
             ready = True
             clear()
             led_on()
