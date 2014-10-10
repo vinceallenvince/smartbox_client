@@ -49,6 +49,10 @@ def play():
     req = Request(base_client_uri + "/action?action=play")
     urlopen(req)
 
+def pause():
+    req = Request(base_client_uri + "/action?action=pause")
+    urlopen(req)
+
 def set_volume():
     #vol = scale(y, (0.0, +20.0), (0.0, +65535.0)) + init_volume_val
     #print(vol)
@@ -66,6 +70,7 @@ def clear():
 
 def thumbup():
     print title_uri
+    pause()
     req = Request(base_server_uri + "/recs?user=mrchrisjohnson&thumb=up&track=" + title_uri)
     urlopen(req)
 
@@ -109,10 +114,12 @@ def check_ready():
             # everything is fine
             print "Ready!"
             ready = True
-            clear() # clear cache
-            led_on()
-            set_volume()
-            play()
+            req = Request(base_client_uri + "/action?set-preset-1")
+            urlopen(req)
+            #clear() # clear cache
+            #led_on()
+            #set_volume()
+            #play()
 
 def shutdown_pi():
     call(["/home/pi/shutdown.sh"])
