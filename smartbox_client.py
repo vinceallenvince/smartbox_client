@@ -13,6 +13,7 @@ GPIO.setmode(GPIO.BCM)
 ready = False
 base_client_uri = "http://127.0.0.1:15004"
 base_server_uri = "http://dev.cjohnson.cloud.spotify.net:8888"
+init_volume_val = 32768
 
 ###################
 
