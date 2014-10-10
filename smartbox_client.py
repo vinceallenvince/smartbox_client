@@ -65,7 +65,8 @@ def clear():
     urlopen(req)
 
 def thumbup():
-    req = Request(base_server_uri + "/recs?user=mrchrisjohnson&thumb=up&track=" + title_uri + )
+    print title_uri
+    req = Request(base_server_uri + "/recs?user=mrchrisjohnson&thumb=up&track=" + title_uri)
     urlopen(req)
 
 def thumbdown():
