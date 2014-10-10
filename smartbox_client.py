@@ -47,11 +47,11 @@ def play():
     urlopen(req)
 
 def set_volume(y):
-    vol = scale(y, (0.0, +20.0), (0.0, +65535.0)) + init_volume_val
-    print(vol)
-    if vol > 0 and vol < 65535 :
-        req = Request(base_client_uri + "/action?action=volume&level=" + `vol`)
-        urlopen(req)
+    #vol = scale(y, (0.0, +20.0), (0.0, +65535.0)) + init_volume_val
+    #print(vol)
+    #if vol > 0 and vol < 65535 :
+    req = Request(base_client_uri + "/action?action=volume&level=" + `65535`)
+    urlopen(req)
     # if volume = 0; pause playback
 
 def scale(val, src, dst):
