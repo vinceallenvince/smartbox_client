@@ -114,7 +114,7 @@ def check_ready():
             # everything is fine
             print "Ready!"
             ready = True
-            req = Request(base_client_uri + "/action?set-preset-1")
+            req = Request(base_client_uri + "/action?action=set-preset-1")
             urlopen(req)
             #clear() # clear cache
             #led_on()
