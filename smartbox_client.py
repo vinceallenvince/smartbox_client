@@ -53,13 +53,9 @@ def pause():
     req = Request(base_client_uri + "/action?action=pause")
     urlopen(req)
 
-def set_volume():
-    #vol = scale(y, (0.0, +20.0), (0.0, +65535.0)) + init_volume_val
-    #print(vol)
-    #if vol > 0 and vol < 65535 :
-    req = Request(base_client_uri + "/action?action=volume&level=" + `63000`)
+def set_volume(y):
+    req = Request(base_client_uri + "/action?action=volume&level=" + `y`)
     urlopen(req)
-    # if volume = 0; pause playback
 
 def scale(val, src, dst):
     return ((val - src[0]) / (src[1]-src[0])) * (dst[1]-dst[0]) + dst[0]
@@ -127,7 +123,7 @@ def check_ready():
             print "Ready!"
             ready = True
             led_on()
-            set_volume()
+            set_volume(63000)
             clear() # clear cache
 
 def shutdown_pi():
