@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BCM)
 ready = False
 base_client_uri = "http://127.0.0.1:15004"
 base_server_uri = "http://dev.cjohnson.cloud.spotify.net:8888"
-init_volume_val = 32768
+init_volume_val = 65535
 
 ###################
 
@@ -95,7 +95,7 @@ def check_ready():
             ready = True
             clear()
             led_on()
-            set_volume(5) # range is -10 -> 10
+            set_volume(20) # range is -20 -> 20
             play()
 
 def shutdown_pi():
