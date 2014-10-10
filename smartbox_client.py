@@ -20,7 +20,7 @@ LED = 26
 LED_count = 0
 LED_state = 1
 GPIO.setup(LED, GPIO.OUT)
-GPIO.output(LED, False)
+GPIO.output(LED, True)
 
 def led_on():
     GPIO.output(LED, True)
@@ -101,7 +101,7 @@ def shutdown_pi():
     call(["/home/pi/shutdown.sh"])
 
 while True:
-    #if ready == True :
+    if ready == True :
         thumb_up_state = GPIO.input(button_thumb_up)
         if thumb_up_state == False:
             print('up button Pressed')
@@ -120,7 +120,7 @@ while True:
             shutdown_pi()
             time.sleep(0.2)
 
-    #else:
-        #check_ready()
+    else:
+        check_ready()
 
 
