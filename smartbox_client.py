@@ -14,6 +14,9 @@ ready = False
 base_client_uri = "http://127.0.0.1:15004"
 base_server_uri = "http://dev.cjohnson.cloud.spotify.net:8888"
 init_volume_val = 65535
+title_uri = ""
+status_check_count = 0
+status_check_max = 200
 
 ###################
 
@@ -62,10 +65,22 @@ def clear():
     urlopen(req)
 
 def thumbup():
-    pass
+    req = Request(base_server_uri + "/recs?user=mrchrisjohnson&thumb=up&track=" + title_uri + )
+    urlopen(req)
 
 def thumbdown():
     pass
+
+def check_status():
+
+    global title_uri
+
+    req = Request(base_client_uri + "/status-data")
+    response = urlopen(req)
+    data = response.read()
+    json_data = json.loads(data)
+
+    title_uri = json_data["title_uri"]
 
 def check_ready():
     global ready, LED_count, LED_state, Request, URLError
@@ -120,6 +135,12 @@ while True:
             print('shutdown button Pressed')
             shutdown_pi()
             time.sleep(0.2)
+
+        # check status on an interval
+        status_check_count += 1
+        if status_check_count > status_check_max :
+            status_check_count = 0
+            check_status()
 
     else:
         check_ready()
