@@ -95,7 +95,7 @@ def check_ready():
             ready = True
             clear()
             led_on()
-            set_volume(20) # range is -20 -> 20
+            set_volume(20.0) # range is -20 -> 20
             play()
 
 def shutdown_pi():
