@@ -123,7 +123,7 @@ def check_ready():
             print "Ready!"
             ready = True
             led_on()
-            set_volume(63000)
+            set_volume(65535)
             clear() # clear cache
 
 def shutdown_pi():
