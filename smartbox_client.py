@@ -46,7 +46,7 @@ GPIO.setup(button_shutdown, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 ###################
 
 def play():
-    req = Request(base_client_uri + "/action?action=play")
+    req = Request(base_client_uri + "/action?action=preset-1")
     urlopen(req)
 
 def pause():
@@ -57,7 +57,7 @@ def set_volume():
     #vol = scale(y, (0.0, +20.0), (0.0, +65535.0)) + init_volume_val
     #print(vol)
     #if vol > 0 and vol < 65535 :
-    req = Request(base_client_uri + "/action?action=volume&level=" + `55535`)
+    req = Request(base_client_uri + "/action?action=volume&level=" + `60000`)
     urlopen(req)
     # if volume = 0; pause playback
 
@@ -114,12 +114,10 @@ def check_ready():
             # everything is fine
             print "Ready!"
             ready = True
-            req = Request(base_client_uri + "/action?action=set-preset-1")
-            urlopen(req)
-            #clear() # clear cache
-            #led_on()
-            #set_volume()
-            #play()
+            clear() # clear cache
+            led_on()
+            set_volume()
+            play()
 
 def shutdown_pi():
     call(["/home/pi/shutdown.sh"])
